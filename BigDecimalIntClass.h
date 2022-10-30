@@ -1,5 +1,5 @@
 // FCAI – Object-Oriented Programming 1 – 2022 - Assignment 1
-// Program Name: BigDecimalInt
+// Program Name: BigDecimalReal
 // Last Modification Date: 13/10/2022
 // Author1 and ID and Group: Basmala Mohamed Sayed Gad  ID: 20210090 (a, b, c)
 // Author2 and ID and Group: Aya Ali Hassan  ID: 20210083 (d, e)

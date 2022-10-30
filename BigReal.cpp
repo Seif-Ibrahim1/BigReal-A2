@@ -1,66 +1,109 @@
+// FCAI – Object-Oriented Programming 1 – 2022 - Assignment 2
+// Program Name: BigDecimalReal
+// Last Modification Date: 10/11/2022
+// Author1 and ID : Ahmed Adel Mahmoud Hemdan , ID : 20210025
+// Author2 and ID : Seif
+// Author3 and ID : Shahd
+/*
+description: In this problem we developed a new C++ type (class).
+that can hold unlimited Double values and performs arithmetic operations on them.
+such as: +, -, <, and >.
+ */
+
 #include "BigReal.h"
+
+
+// regex function that checks the validation of the input.
+bool BigReal::checkValidInput(string input) {
+    if (input == ".")
+        return false;
+    regex validInput("[-+]?[0-9]*.[0-9]*");
+    return regex_match(input, validInput);
+}
+
 // ahmed
 // Default constructor
-BigReal::BigReal (double realNum) {
+BigReal::BigReal(double realNum) {
     this->doubleNum = realNum;
 }
 
 // ahmed
-BigReal::BigReal (string realNum) {
-    this->number = realNum;
+BigReal::BigReal(string realNum) {
+//    this->number = realNum;
+
+    bool validNumber = checkValidInput(realNum);
+    if (validNumber) {
+
+        // separate decimal and fraction parts
+        for (int i = 0; i < realNum.length(); i++) {
+            if (realNum[i] == '.') {
+                // check if any part == "" then put "0"
+                string decimalPart = realNum.substr(0, i) != "" ? realNum.substr(0, i) : "0";
+                string fractionPart = realNum.substr(i + 1) != "" ? realNum.substr(i + 1) : "0";
+                this->decimalPart = BigDecimalInt(decimalPart);
+                this->fractionPart = BigDecimalInt(fractionPart);
+                break;
+            }
+        }
+
+
+    } else {
+        cout << "Invalid Real Number" << "\n";
+        exit(1);
+    }
 }
 
 // ahmed
-BigReal::BigReal (BigDecimalInt bigInt) {
+BigReal::BigReal(BigDecimalInt bigInt) {
 
 }
 
 // ahmed
 // Copy constructor
-BigReal::BigReal (const BigReal& other) {
+BigReal::BigReal(const BigReal &other) {
 
 }
 
 // ahmed
 // Move constructor
-BigReal::BigReal (BigReal&& other) {
+BigReal::BigReal(BigReal &&other) {
 
 }
 
 // ahmed
 // Assignment operator
-BigReal& BigReal::operator= (BigReal& other) {
+BigReal &BigReal::operator=(BigReal &other) {
 
 }
 
 // ahmed
 // Move assignment
-BigReal& BigReal::operator= (BigReal&& other) {
+BigReal &BigReal::operator=(BigReal &&other) {
 
 }
 
 //seif
-BigReal BigReal::operator+ (BigReal& other) {
+BigReal BigReal::operator+(BigReal &other) {
 
 }
 
 //seif
-BigReal BigReal::operator- (BigReal& other) {
+BigReal BigReal::operator-(BigReal &other) {
 
 }
 
 //shahd
-bool BigReal::operator< (BigReal anotherReal) {
+bool BigReal::operator<(BigReal anotherReal) {
 
 }
 
 //shahd
-bool BigReal::operator> (BigReal anotherReal) {
+bool BigReal::operator>(BigReal anotherReal) {
 
 }
 
 //shahd
-bool BigReal::operator== (BigReal anotherReal) {
+bool BigReal::operator==(BigReal anotherReal) {
 
 }
 
@@ -75,12 +118,12 @@ int BigReal::sign() {
 }
 
 //shahd
-ostream& operator << (ostream& out, BigReal num) {
+ostream &operator<<(ostream &out, BigReal num) {
 
 }
 
 //shahd
-istream& operator >> (istream& out, BigReal num) {
+istream &operator>>(istream &out, BigReal num) {
 
 }
 
