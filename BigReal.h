@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <regex>
+#include <string>
+#include <ctype.h>
 #include "BigDecimalIntClass.h"
 
 
