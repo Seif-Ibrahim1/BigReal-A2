@@ -71,6 +71,11 @@ BigReal &BigReal::operator=(BigReal &&other) {
 }
 
 //seif
+string BigReal::getNum() {
+    return number;
+}
+
+//seif
 BigReal BigReal::operator+(BigReal &other) {
 
 }

@@ -26,6 +26,7 @@ public:
     BigReal (BigReal&& other); // Move constructor
     BigReal& operator= (BigReal& other); // Assignment operator
     BigReal& operator= (BigReal&& other); // Move assignment
+    string getNum();
     BigReal operator+ (BigReal& other);
     BigReal operator- (BigReal& other);
     bool operator< (BigReal anotherReal);
