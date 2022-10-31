@@ -22,14 +22,28 @@ BigReal::BigReal(string realNum) {
     bool validNumber = checkValidInput(realNum);
     if (validNumber) {
 
+        //delete right fraction zeros
+        while (realNum.back() == '0') {
+            realNum.pop_back();
+        }
+        //delete left decimal zeros
+        int signLength = (realNum[0] == '+' || realNum[0] == '-') ? 1 : 0;
+        while (realNum[0 + signLength] == '0') {
+            realNum.erase(0 + signLength, 1);
+        }
+
         // separate decimal and fraction parts
         for (int i = 0; i < realNum.length(); i++) {
             if (realNum[i] == '.') {
                 // check if any part == "" then put "0"
                 string decimalPart = realNum.substr(0, i) != "" ? realNum.substr(0, i) : "0";
+                decimalPart =
+                        (realNum.substr(0, i) == "+") || (realNum.substr(0, i) == "-") ? realNum.substr(0, i) + "0"
+                                                                                       : decimalPart;
                 string fractionPart = realNum.substr(i + 1) != "" ? realNum.substr(i + 1) : "0";
                 this->decimalPart = BigDecimalInt(decimalPart);
                 this->fractionPart = BigDecimalInt(fractionPart);
+                this->numSign = this->decimalPart.sign() == 1 ? '+' : '-';
                 break;
             }
         }
@@ -72,7 +86,7 @@ BigReal &BigReal::operator=(BigReal &&other) {
 
 //seif
 string BigReal::getNum() {
-    number = decimalPart.getNumber() + "." + fractionPart.getNumber();
+    number = (decimalPart.sign() == 0 ? "-" : "") + decimalPart.getNumber() + "." + fractionPart.getNumber();
     return number;
 }
 
