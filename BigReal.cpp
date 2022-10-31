@@ -102,28 +102,60 @@ BigReal BigReal::operator-(BigReal &other) {
 
 //shahd
 bool BigReal::operator<(BigReal anotherReal) {
-
+    if (decimalPart < anotherReal.decimalPart) {
+        return true;
+    }
+    else if (decimalPart == anotherReal.decimalPart) {
+        if (fractionPart < anotherReal.fractionPart) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    else {
+        return false;
+    }
 }
 
 //shahd
 bool BigReal::operator>(BigReal anotherReal) {
-
+    if (decimalPart > anotherReal.decimalPart) {
+        return true;
+    }
+    else if (decimalPart == anotherReal.decimalPart) {
+        if (fractionPart > anotherReal.fractionPart) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    else {
+        return false;
+    }
 }
 
 //shahd
 bool BigReal::operator==(BigReal anotherReal) {
-
+    if (decimalPart == anotherReal.decimalPart && fractionPart == anotherReal.fractionPart) {
+        return true;
+    }
+    else {
+        return false;
+    }
 }
 
 //shahd
 int BigReal::size() {
-
+    return decimalPart.size() + fractionPart.size();
 }
 
 //shahd
 int BigReal::sign() {
-
+    return decimalPart.sign();
 }
+
 
 //shahd
 ostream &operator<<(ostream &out, BigReal num) {

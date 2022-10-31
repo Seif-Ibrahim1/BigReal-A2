@@ -14,6 +14,13 @@ int main() {
     cout << num4.getNum() << endl;
     cout << num5.getNum() << endl;
 
+    cout << num6.size() << endl;
+    cout << num6.sign() << endl;
+    cout << num1.sign() << endl;
+
+    cout << (num1 < num8) << endl;
+    cout << (num7 == num8) << endl; 
+
     cout << "Worked" << endl;
 
     return 0;
