@@ -8,12 +8,10 @@ int main() {
     BigReal num6("000055.540000000");
     BigReal num7("34.86");
 
-    cout<< num1.decimalPart<<endl;
-    cout<< num1.fractionPart<<endl;
-    cout<< num2.decimalPart<<endl;
-    cout<< num2.fractionPart<<endl;
-    cout<< num3.decimalPart<<endl;
-    cout<< num3.fractionPart<<endl;
+    cout<< num1.getNum() <<endl;
+    cout<< num2.getNum() <<endl;
+    cout<< num3.getNum() <<endl;
+
     cout << "Worked" << endl;
 
     return 0;

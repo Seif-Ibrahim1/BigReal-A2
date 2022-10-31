@@ -9,7 +9,7 @@
 using namespace std;
 
 class BigReal {
-public:
+private:
     BigDecimalInt decimalPart;
     BigDecimalInt fractionPart;
     string number;

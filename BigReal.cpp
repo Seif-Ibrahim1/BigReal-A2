@@ -72,6 +72,7 @@ BigReal &BigReal::operator=(BigReal &&other) {
 
 //seif
 string BigReal::getNum() {
+    number = decimalPart.getNumber() + "." + fractionPart.getNumber();
     return number;
 }
 
