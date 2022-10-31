@@ -6,6 +6,7 @@ int main() {
     BigReal num3("-00.9");
     BigReal num4("-000055.000540000000");
     BigReal num5("34.86");
+    BigReal num6("96.");
 //        BigReal num6("9.8.7"); // should print error
 
     cout << num1.getNum() << endl;
@@ -18,8 +19,6 @@ int main() {
     cout << num6.sign() << endl;
     cout << num1.sign() << endl;
 
-    cout << (num1 < num8) << endl;
-    cout << (num7 == num8) << endl; 
 
     cout << "Worked" << endl;
 
