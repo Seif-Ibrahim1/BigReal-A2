@@ -57,7 +57,9 @@ BigReal::BigReal(string realNum) {
 
 // ahmed
 BigReal::BigReal(BigDecimalInt bigInt) {
-
+    this->decimalPart = bigInt;
+    this->fractionPart = BigDecimalInt("0");
+    this->numSign = bigInt.sign() == 1 ? '+' : '-';
 }
 
 // ahmed
@@ -104,16 +106,13 @@ BigReal BigReal::operator-(BigReal &other) {
 bool BigReal::operator<(BigReal anotherReal) {
     if (decimalPart < anotherReal.decimalPart) {
         return true;
-    }
-    else if (decimalPart == anotherReal.decimalPart) {
+    } else if (decimalPart == anotherReal.decimalPart) {
         if (fractionPart < anotherReal.fractionPart) {
             return true;
-        }
-        else {
+        } else {
             return false;
         }
-    }
-    else {
+    } else {
         return false;
     }
 }
@@ -122,16 +121,13 @@ bool BigReal::operator<(BigReal anotherReal) {
 bool BigReal::operator>(BigReal anotherReal) {
     if (decimalPart > anotherReal.decimalPart) {
         return true;
-    }
-    else if (decimalPart == anotherReal.decimalPart) {
+    } else if (decimalPart == anotherReal.decimalPart) {
         if (fractionPart > anotherReal.fractionPart) {
             return true;
-        }
-        else {
+        } else {
             return false;
         }
-    }
-    else {
+    } else {
         return false;
     }
 }
@@ -140,8 +136,7 @@ bool BigReal::operator>(BigReal anotherReal) {
 bool BigReal::operator==(BigReal anotherReal) {
     if (decimalPart == anotherReal.decimalPart && fractionPart == anotherReal.fractionPart) {
         return true;
-    }
-    else {
+    } else {
         return false;
     }
 }
