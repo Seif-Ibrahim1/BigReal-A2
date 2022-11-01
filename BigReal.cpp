@@ -236,7 +236,8 @@ int BigReal::sign() {
 
 // shahd
 ostream &operator<<(ostream &out, BigReal num) {
-
+    out << num.decimalPart << "." << num.fractionPart;
+    return out;
 }
 
 // shahd
