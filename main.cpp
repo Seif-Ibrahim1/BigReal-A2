@@ -11,9 +11,9 @@ int main() {
     BigReal num7("-00.9");
     BigReal num8("-000055.000540000000");
     BigReal num9(BigDecimalInt("0"));
-    BigReal num10 = num8;
+    BigReal num10 ;
     BigReal num11;
-//    num10 = num8;
+    num10 = num8;
 //        BigReal num6("9.8.7"); // should print error
 
     cout << num10.getNum() << endl;
