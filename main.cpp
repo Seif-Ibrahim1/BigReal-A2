@@ -1,4 +1,4 @@
-#include "BigReal.cpp"
+#include "BigReal.h"
 
 int main() {
     BigReal num1("-22.44");
@@ -10,42 +10,44 @@ int main() {
 
     BigReal num7("-00.9");
     BigReal num8("-000055.000540000000");
-    
-    BigReal num9("1.6");
-    BigReal num10("2.3");
+    BigReal num9(BigDecimalInt("0"));
+    BigReal num10 = num8;
     BigReal num11;
+    BigReal num12("2.3");
+    BigReal num13("1.6");
+//    num10 = num8;
 //        BigReal num6("9.8.7"); // should print error
 
-    cout << num1.getNum() << endl;
-    cout << num2.getNum() << endl;
-    cout << num3.getNum() << endl;
-    cout << num4.getNum() << endl;
-    cout << num5.getNum() << endl;
+    cout << num10.getNum() << endl;
+//    cout << num2.getNum() << endl;
+//    cout << num3.getNum() << endl;
+//    cout << num4.getNum() << endl;
+//    cout << num5.getNum() << endl;
+//
+//    cout << num6.size() << endl;
+//    cout << num6.sign() << endl;
+//    cout << num1.sign() << endl;
+//
+//    // not working
+//    if(num2 < num6) {
+//        cout << "true" << endl;
+//    } else {
+//        cout << "False" << endl;
+//    }
+//
+//    // not working
+//    if(num7 > num8) {
+//        cout << "true" << endl;
+//    } else {
+//        cout << "False" << endl;
+//    }
+//
+//    cout << "Worked" << endl;
 
-    cout << num6.size() << endl;
-    cout << num6.sign() << endl;
-    cout << num1.sign() << endl;
-
-    // not working 
-    if(num2 < num6) {
-        cout << "true" << endl;
-    } else {
-        cout << "False" << endl;
-    }
-
-    // not working
-    if(num7 > num8) {
-        cout << "true" << endl;
-    } else {
-        cout << "False" << endl;
-    }
     
-    num11 = num9 + num10;
-    cout << "num9 + num10 = " << num11.getNum() << endl;
-    cout << "Worked" << endl;
-
-    num11 = BigReal("13.9");
-    cout << num11.getNum() << endl;
+    // assignment operator not working 
+    num11 = num12 + num13;
+    cout << "num12 + num13 = " << num11.getNum() << endl;
     return 0;
 }
 
