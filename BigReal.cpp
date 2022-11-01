@@ -205,13 +205,23 @@ BigReal BigReal::operator-(BigReal &other) {
 bool BigReal::operator<(BigReal anotherReal) {
     if (decimalPart < anotherReal.decimalPart) {
         return true;
-    } else if (decimalPart == anotherReal.decimalPart) {
-        if (fractionPart < anotherReal.fractionPart) {
-            return true;
-        } else {
-            return false;
+    }
+    else if (decimalPart == anotherReal.decimalPart)
+    {
+        string fraction1 = fractionPart.getNumber();
+        string fraction2 = anotherReal.fractionPart.getNumber();
+        while (fraction1.length() > fraction2.length()) {
+            fraction2 += '0';
         }
-    } else {
+        while (fraction2.length() > fraction1.length()) {
+            fraction1 += '0';
+        }
+        if(fraction1 < fraction2)
+            return true;
+        else
+            return false;
+    }
+    else {
         return false;
     }
 }
@@ -221,15 +231,23 @@ bool BigReal::operator>(BigReal anotherReal) {
     if (decimalPart > anotherReal.decimalPart) {
         return true;
     } else if (decimalPart == anotherReal.decimalPart) {
-        if (fractionPart > anotherReal.fractionPart) {
-            return true;
-        } else {
-            return false;
+        string fraction1 = fractionPart.getNumber();
+        string fraction2 = anotherReal.fractionPart.getNumber();
+        while (fraction1.length() > fraction2.length()) {
+            fraction2 += '0';
         }
+        while (fraction2.length() > fraction1.length()) {
+            fraction1 += '0';
+        }
+        if (fraction1 > fraction2)
+            return true;
+        else
+            return false;
     } else {
         return false;
     }
 }
+
 
 // shahd
 bool BigReal::operator==(BigReal anotherReal) {
