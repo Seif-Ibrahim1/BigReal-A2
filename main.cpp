@@ -13,8 +13,6 @@ int main() {
     BigReal num9(BigDecimalInt("0"));
     BigReal num10 = num8;
     BigReal num11;
-    BigReal num12("2.3");
-    BigReal num13("1.6");
 //    num10 = num8;
 //        BigReal num6("9.8.7"); // should print error
 
@@ -46,8 +44,11 @@ int main() {
 
     
     // assignment operator not working 
-    num11 = num12 + num13;
-    cout << "num12 + num13 = " << num11.getNum() << endl;
+    num11 = num5 + num2;
+    cout << "num5 + num6 = " << num11.getNum() << endl;
+
+    num11 = num7 + num8;
+    cout << "num7 + num8 = " << num11.getNum() << endl;
     return 0;
 }
 

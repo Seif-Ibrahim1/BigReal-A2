@@ -107,14 +107,7 @@ BigReal BigReal::operator+(BigReal &other) {
     } else if (this->decimalPart.sign() == 0 && other.decimalPart.sign() == 1) {
         return other - *this;
     } else {
-        bool isNegative = false;
         
-        if(this->decimalPart.sign() == 1 && other.decimalPart.sign() == 1) {
-            isNegative = false;
-        } else if (this->decimalPart.sign() == 0 && other.decimalPart.sign() == 0){
-            isNegative = true;
-        }
-
         string fraction1 =  this->fractionPart.getNumber();
         string fraction2 =  other.fractionPart.getNumber();
         string fractionSum = "";
@@ -133,20 +126,28 @@ BigReal BigReal::operator+(BigReal &other) {
             strSum = to_string(intSum);
             reminder = 0;
             if(strSum.length() > 1) {
-                reminder = strSum[0];
-                fractionSum[0] += strSum[1];
+                cout << "strSum is" << strSum << endl;
+                reminder = 1;
+                fractionSum.insert(fractionSum.begin(), strSum[1]);
+                cout << "fraction sum is " << fractionSum << endl;
             } else {
+                cout << "strSum is" << strSum << endl;
                 fractionSum.insert(fractionSum.begin(), strSum[0]);
+                cout << "fraction sum is " << fractionSum << endl;
             }
             
         }
         
+        cout << "Reminder is " << reminder << endl;
         
         sum.decimalPart = this->decimalPart + other.decimalPart;
         if (reminder != 0) {
+            cout << "Remineder is " << reminder << endl;
             sum.decimalPart = sum.decimalPart + BigDecimalInt("1");
         }
         sum.fractionPart = BigDecimalInt(fractionSum);
+
+        
 
         cout << "sum fraction part is " << sum.fractionPart << endl;
         cout << "sum decimal part is " << sum.decimalPart << endl;
