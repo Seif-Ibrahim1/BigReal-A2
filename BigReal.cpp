@@ -75,19 +75,37 @@ BigReal::BigReal(const BigReal &other) {
 // ahmed
 // Move constructor
 BigReal::BigReal(BigReal &&other) {
-
+    this->decimalPart  = move(other.decimalPart) ;
+    this->fractionPart = move(other.fractionPart);
+    this->number = move(other.number);
+    this->doubleNum = move(other.doubleNum); // for the default constructor
+    this->numSign = move(other.numSign);
 }
 
 // ahmed
 // Assignment operator
 BigReal &BigReal::operator=(BigReal &other) {
-
+    if(this != &other){
+        this->decimalPart  = other.decimalPart ;
+        this->fractionPart = other.fractionPart;
+        this->number = other.number;
+        this->doubleNum = other.doubleNum; // for the default constructor
+        this->numSign = other.numSign;
+    }
+    return *this;
 }
 
 // ahmed
 // Move assignment
 BigReal &BigReal::operator=(BigReal &&other) {
-
+    if(this != &other){
+        this->decimalPart  = move(other.decimalPart) ;
+        this->fractionPart = move(other.fractionPart);
+        this->number = move(other.number);
+        this->doubleNum = move(other.doubleNum); // for the default constructor
+        this->numSign = move(other.numSign);
+    }
+    return *this;
 }
 
 // seif
