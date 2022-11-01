@@ -1,4 +1,4 @@
-#include "BigReal.h"
+#include "BigReal.cpp"
 
 int main() {
     BigReal num1("-22.44");
@@ -42,8 +42,6 @@ int main() {
 //
 //    cout << "Worked" << endl;
 
-    
-    // assignment operator not working 
     num11 = num1 - num5;
     cout << "num5 - num6 = " << num11.getNum() << endl;
 

@@ -175,11 +175,6 @@ BigReal BigReal::operator+(BigReal &other) {
         }
         sum.fractionPart = BigDecimalInt(fractionSum);
 
-        
-        cout << "sum fraction part is " << sum.fractionPart << endl;
-        cout << "sum decimal part is " << sum.decimalPart << endl;
-        cout << "sum is " << sum.getNum() << endl;
-
         return sum;
     }
      
