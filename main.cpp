@@ -1,4 +1,4 @@
-#include "BigReal.cpp"
+#include "BigReal.h"
 
 int main() {
     BigReal num1("-22.44");
@@ -26,14 +26,11 @@ int main() {
 //    cout << num6.sign() << endl;
 //    cout << num1.sign() << endl;
 //
-//    // not working
 //    if(num2 < num6) {
 //        cout << "true" << endl;
 //    } else {
 //        cout << "False" << endl;
 //    }
-//
-//    // not working
 //    if(num7 > num8) {
 //        cout << "true" << endl;
 //    } else {
