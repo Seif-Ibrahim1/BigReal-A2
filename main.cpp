@@ -1,4 +1,4 @@
-#include "BigReal.h"
+#include "BigReal.cpp"
 
 int main() {
     BigReal num1("-22.44");
@@ -10,6 +10,10 @@ int main() {
 
     BigReal num7("-00.9");
     BigReal num8("-000055.000540000000");
+    
+    BigReal num9("1.6");
+    BigReal num10("2.3");
+    BigReal num11;
 //        BigReal num6("9.8.7"); // should print error
 
     cout << num1.getNum() << endl;
@@ -35,9 +39,13 @@ int main() {
     } else {
         cout << "False" << endl;
     }
-
+    
+    num11 = num9 + num10;
+    cout << "num9 + num10 = " << num11.getNum() << endl;
     cout << "Worked" << endl;
 
+    num11 = BigReal("13.9");
+    cout << num11.getNum() << endl;
     return 0;
 }
 

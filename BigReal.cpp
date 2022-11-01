@@ -93,11 +93,68 @@ string BigReal::getNum() {
 //seif
 BigReal BigReal::operator+(BigReal &other) {
 
+    BigReal sum;
+    
+    // 1 == + && 0 == - 
+    if(this->decimalPart.sign() == 1 && other.decimalPart.sign() == 0) {
+        return *this - other;
+    } else if (this->decimalPart.sign() == 0 && other.decimalPart.sign() == 1) {
+        return other - *this;
+    } else {
+        bool isNegative = false;
+        
+        if(this->decimalPart.sign() == 1 && other.decimalPart.sign() == 1) {
+            isNegative = false;
+        } else if (this->decimalPart.sign() == 0 && other.decimalPart.sign() == 0){
+            isNegative = true;
+        }
+
+        string fraction1 =  this->fractionPart.getNumber();
+        string fraction2 =  other.fractionPart.getNumber();
+        string fractionSum = "";
+        string num1, num2, strSum;
+        int reminder = 0 , intSum;
+        while(fraction1.length() > fraction2.length()) {
+            fraction2 += '0';
+        }
+        while(fraction2.length() > fraction1.length()) {
+            fraction1 += '0';
+        }
+        for(int i = fraction1.length() - 1; i >= 0; i--) {
+            num1 = fraction1[i];
+            num2 = fraction2[i];
+            intSum = stoi(num1) + stoi(num2) + reminder;
+            strSum = to_string(intSum);
+            reminder = 0;
+            if(strSum.length() > 1) {
+                reminder = strSum[0];
+                fractionSum[0] += strSum[1];
+            } else {
+                fractionSum.insert(fractionSum.begin(), strSum[0]);
+            }
+            
+        }
+        
+        
+        sum.decimalPart = this->decimalPart + other.decimalPart;
+        if (reminder != 0) {
+            sum.decimalPart = sum.decimalPart + BigDecimalInt("1");
+        }
+        sum.fractionPart = BigDecimalInt(fractionSum);
+
+        cout << "sum fraction part is " << sum.fractionPart << endl;
+        cout << "sum decimal part is " << sum.decimalPart << endl;
+        cout << "sum is " << sum.getNum() << endl;
+
+        return sum;
+    }
+     
+    
 }
 
 //seif
 BigReal BigReal::operator-(BigReal &other) {
-
+    
 }
 
 //shahd
