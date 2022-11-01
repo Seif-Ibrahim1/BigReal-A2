@@ -5,7 +5,7 @@
 #include <regex>
 #include <string>
 #include <ctype.h>
-#include "BigDecimalIntClass.h"
+#include "BigDecimalIntClass.cpp"
 
 
 using namespace std;
@@ -18,7 +18,7 @@ private:
     double doubleNum; // for the default constructor
     char numSign;
     bool checkValidInput(string input);
-    string changeNumSign(BigReal num, char sign);
+    string changeNumSign(BigReal num, int sign);
 
 
 public:
