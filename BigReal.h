@@ -5,7 +5,7 @@
 #include <regex>
 #include <string>
 #include <ctype.h>
-#include "BigDecimalIntClass.cpp"
+#include "BigDecimalIntClass.h"
 
 
 using namespace std;
