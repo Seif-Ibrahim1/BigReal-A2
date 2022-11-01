@@ -90,10 +90,15 @@ BigReal &BigReal::operator=(BigReal &&other) {
 
 }
 
-//seif
+// seif
 string BigReal::getNum() {
     number = (decimalPart.sign() == 0 ? "-" : "") + decimalPart.getNumber() + "." + fractionPart.getNumber();
     return number;
+}
+
+// seif
+string BigReal::changeNumSign(BigReal num, char sign) {
+    string newNum = sign + decimalPart.getNumber() + "." + fractionPart.getNumber();
 }
 
 //seif
@@ -103,11 +108,12 @@ BigReal BigReal::operator+(BigReal &other) {
     
     // 1 == + && 0 == - 
     if(this->decimalPart.sign() == 1 && other.decimalPart.sign() == 0) {
-        return *this - other;
+        BigReal newNum = BigReal(changeNumSign(other, '+'));
+        return *this - newNum;
     } else if (this->decimalPart.sign() == 0 && other.decimalPart.sign() == 1) {
-        return other - *this;
+        BigReal newNum = BigReal(changeNumSign(*this, '+'));
+        return other - newNum;
     } else {
-        
         string fraction1 =  this->fractionPart.getNumber();
         string fraction2 =  other.fractionPart.getNumber();
         string fractionSum = "";
@@ -159,12 +165,26 @@ BigReal BigReal::operator+(BigReal &other) {
     
 }
 
-//seif
+// seif
 BigReal BigReal::operator-(BigReal &other) {
+    BigReal dif;
     
+    // 1 == + && 0 == - 
+    if(this->decimalPart.sign() == 1 && other.decimalPart.sign() == 0) {
+        BigReal newNum = BigReal(changeNumSign(other, '+'));
+        return *this + newNum;
+    } else if (this->decimalPart.sign() == 0 && other.decimalPart.sign() == 1) {
+        BigReal newNum = BigReal(changeNumSign(other, '-'));
+        return *this + newNum;
+    } else if (this->decimalPart.sign() == 0 && other.decimalPart.sign() == 0) {
+        BigReal newNum = BigReal(changeNumSign(other, '+'));
+        return newNum + *this;
+    } else  {
+        
+    }
 }
 
-//shahd
+// shahd
 bool BigReal::operator<(BigReal anotherReal) {
     if (decimalPart < anotherReal.decimalPart) {
         return true;
@@ -179,7 +199,7 @@ bool BigReal::operator<(BigReal anotherReal) {
     }
 }
 
-//shahd
+// shahd
 bool BigReal::operator>(BigReal anotherReal) {
     if (decimalPart > anotherReal.decimalPart) {
         return true;
@@ -194,7 +214,7 @@ bool BigReal::operator>(BigReal anotherReal) {
     }
 }
 
-//shahd
+// shahd
 bool BigReal::operator==(BigReal anotherReal) {
     if (decimalPart == anotherReal.decimalPart && fractionPart == anotherReal.fractionPart) {
         return true;
@@ -203,23 +223,23 @@ bool BigReal::operator==(BigReal anotherReal) {
     }
 }
 
-//shahd
+// shahd
 int BigReal::size() {
     return decimalPart.size() + fractionPart.size();
 }
 
-//shahd
+// shahd
 int BigReal::sign() {
     return decimalPart.sign();
 }
 
 
-//shahd
+// shahd
 ostream &operator<<(ostream &out, BigReal num) {
 
 }
 
-//shahd
+// shahd
 istream &operator>>(istream &out, BigReal num) {
 
 }

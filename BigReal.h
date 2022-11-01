@@ -18,6 +18,7 @@ private:
     double doubleNum; // for the default constructor
     char numSign;
     bool checkValidInput(string input);
+    string changeNumSign(BigReal num, char sign);
 
 
 public:
