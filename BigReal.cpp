@@ -65,7 +65,11 @@ BigReal::BigReal(BigDecimalInt bigInt) {
 // ahmed
 // Copy constructor
 BigReal::BigReal(const BigReal &other) {
-
+    this->decimalPart  = other.decimalPart ;
+    this->fractionPart = other.fractionPart;
+    this->number = other.number;
+    this->doubleNum = other.doubleNum; // for the default constructor
+    this->numSign = other.numSign;
 }
 
 // ahmed
