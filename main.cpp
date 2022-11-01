@@ -1,11 +1,11 @@
-#include "BigReal.h"
+#include "BigReal.cpp"
 
 int main() {
     BigReal num1("-22.44");
     BigReal num2(".86");
     BigReal num3("-00.9");
     BigReal num4("-000055.000540000000");
-    BigReal num5("34.86");
+    BigReal num5("-34.86");
     BigReal num6("96.");
 
     BigReal num7("-00.9");
@@ -44,10 +44,10 @@ int main() {
 
     
     // assignment operator not working 
-    num11 = num5 + num2;
-    cout << "num5 + num6 = " << num11.getNum() << endl;
+    num11 = num1 - num5;
+    cout << "num5 - num6 = " << num11.getNum() << endl;
 
-    num11 = num7 + num8;
+    num11 = num1 + num5;
     cout << "num7 + num8 = " << num11.getNum() << endl;
     return 0;
 }
