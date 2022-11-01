@@ -1,4 +1,4 @@
-#include "BigReal.cpp"
+#include "BigReal.h"
 
 int main() {
     BigReal num1("-22.44");
