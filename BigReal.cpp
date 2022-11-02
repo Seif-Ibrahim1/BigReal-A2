@@ -196,8 +196,57 @@ BigReal BigReal::operator-(BigReal &other) {
         BigReal newNum = BigReal(changeNumSign(other, 1));
         return newNum + *this;
     } else  {
-        cout << "- worked" << endl;
+        bool isReversed;
+        BigReal num1;
+        BigReal num2;
+        if(*this < other) {
+            num1 = other;
+            num2 = *this;
+            isReversed = true;
+        } else {
+            num1 = *this;
+            num2 = other;
+            isReversed = false;
+        }
+        string fraction1 =  num1.fractionPart.getNumber();
+        string fraction2 =  num2.fractionPart.getNumber();
+        while(fraction1.length() > fraction2.length()) {
+            fraction2 += '0';
+        }
+        while(fraction2.length() > fraction1.length()) {
+            fraction1 += '0';
+        }
+        BigDecimalInt decimalNum1("1" + fraction1);
+        BigDecimalInt decimalNum2(fraction2);
+
+        BigDecimalInt fractionDif = decimalNum1 - decimalNum2;
+        string fractionDifStr = fractionDif.getNumber();
+
+
+        if(fractionDifStr.length() < fraction1.length()) {
+            while(fractionDifStr.length() < fraction1.length()) {
+                fractionDifStr.insert(fractionDifStr.begin(), '0');
+            }
+            dif.decimalPart = num1.decimalPart - num2.decimalPart - BigDecimalInt("1");
+            
+        } else if (fractionDifStr.length() > fraction1.length()) {
+            while(fractionDifStr.length() > fraction1.length()) {
+                fractionDifStr.erase(fractionDifStr.begin());
+            }
+            dif.decimalPart = num1.decimalPart - num2.decimalPart;
+        } else {
+            dif.decimalPart = num1.decimalPart - num2.decimalPart - BigDecimalInt("1");
+        }
+
+        if(isReversed) {
+            dif.decimalPart = BigDecimalInt("-" + dif.decimalPart.getNumber());
+        }
+
+        dif.fractionPart = BigDecimalInt(fractionDifStr);
+
         return dif;
+        
+
     }
 }
 
