@@ -38,7 +38,7 @@ public:
     int size();
     int sign();
     friend ostream& operator << (ostream& out, BigReal num);
-    friend istream& operator >> (istream& out, BigReal num);
+    friend istream& operator >> (istream& in, BigReal num);
 };
 
 #endif

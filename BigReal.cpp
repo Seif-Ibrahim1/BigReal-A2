@@ -325,7 +325,7 @@ ostream &operator<<(ostream &out, BigReal num) {
 }
 
 // shahd
-istream &operator>>(istream &out, BigReal num) {
+istream &operator>>(istream &in, BigReal num) {
 
 }
 
