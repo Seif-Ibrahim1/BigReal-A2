@@ -42,7 +42,7 @@ int main() {
 
 
     // check the - operator
-    cout << "num1 + num2: " << (num1 - num2) << endl;
+    cout << "num1 - num2: " << (num1 - num2) << endl;
     cout << "num12 - num1 : " << (num12 - num1) << endl;
 
 
