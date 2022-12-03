@@ -14,6 +14,8 @@ int main() {
     BigReal num13("-1000.8500");
     BigReal num15("0");
     BigReal num16("99.");
+    Bigreal num17("1.2");
+    Bigreal num18("1.20");
 
     // check the copy constructor
     BigReal num10(num1);
@@ -60,6 +62,7 @@ int main() {
     //check operator ==
     cout << "num1 == num2: " << (num1 == num2) << endl;
     cout << "num1 == num7: " << (num1 == num7) << endl;
+    cout << "num17 == num18:" << (num17 == num18) << endl;
 
     // check sign function
     cout << "num1 sign: " << num1.sign() << endl;
