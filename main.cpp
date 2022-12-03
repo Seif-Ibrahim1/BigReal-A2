@@ -14,8 +14,8 @@ int main() {
     BigReal num13("-1000.8500");
     BigReal num15("0");
     BigReal num16("99.");
-    Bigreal num17("1.2");
-    Bigreal num18("1.20");
+    BigReal num17("1.2");
+    BigReal num18("1.20");
 
     // check the copy constructor
     BigReal num10(num1);
